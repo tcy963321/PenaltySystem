@@ -1,6 +1,7 @@
 package main;
 
 import java.util.List;
+import main.dataaccess.RootDA;
 import main.dataaccess.RulesDA;
 import main.models.Rule;
 
@@ -9,6 +10,8 @@ public class ViewData {
     private static ViewData instance = null;
 
     private ViewData() {
+        // When creating this class, create directory to save files
+        RootDA.createRootDirectory();
     }
 
     public static ViewData getInstance() {
