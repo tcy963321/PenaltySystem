@@ -3,7 +3,9 @@ package main;
 import java.util.List;
 import main.dataaccess.RootDA;
 import main.dataaccess.RulesDA;
+import main.dataaccess.StudentsDA;
 import main.models.Rule;
+import main.models.Student;
 
 public class ViewData {
 
@@ -27,5 +29,10 @@ public class ViewData {
 
     public void saveRulesList(List<Rule> rulesToSave) {
         RulesDA.getInstance().saveRules(rulesToSave);
+    }
+    
+    public List<Student> getAllStudents() {
+        //StudentsDA.getInstance().studentsDemoData();
+        return StudentsDA.getInstance().getStudents();
     }
 }

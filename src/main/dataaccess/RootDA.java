@@ -10,7 +10,6 @@ public class RootDA {
             + File.separator;
 
     private RootDA() {
-
     }
 
     /**
