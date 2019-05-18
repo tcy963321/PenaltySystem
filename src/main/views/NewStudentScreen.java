@@ -1,5 +1,6 @@
 package main.views;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,7 +17,9 @@ public class NewStudentScreen extends JFrame {
 
     public NewStudentScreen() {
         super("Add New Student");
-
+        
+        // Wrap this in a JPanel, then separate JPanel for TwoButtons class
+        // Root layout is borderlayout
         setLayout(new FlowLayout(FlowLayout.LEFT));
 
         name = new JLabel("Name                                                       ", SwingConstants.RIGHT);
@@ -104,6 +107,14 @@ public class NewStudentScreen extends JFrame {
         add(okbut);
         JButton cancelbut = new JButton("        Cancel        ");
         add(cancelbut);
+        
+        //TODO: Add button functionality
+        //TODO: Make undergrad, master, postgrad class
 
+    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        return new Dimension(600, 400);
     }
 }
