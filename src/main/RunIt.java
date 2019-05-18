@@ -1,8 +1,9 @@
 package main;
 
-import javax.swing.JComponent;
+import java.awt.EventQueue;
 import javax.swing.JFrame;
-import main.views.RulesOverview;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import main.views.StudentsListScreen;
 
 public class RunIt {
@@ -10,15 +11,16 @@ public class RunIt {
     private static JFrame mainWindow;
 
     public static void main(String[] args) {
+        EventQueue.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
+                System.out.println("Cannot set look and feel: " + e.getMessage());
+            }
+        });
 
-        mainWindow = new JFrame("Font Radio Button Demo");
+        mainWindow = new StudentsListScreen();
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JComponent contentPane = new StudentsListScreen(
-                ViewData.getInstance().getAllStudents());
-        
-        contentPane.setOpaque(true);
-        mainWindow.setContentPane(contentPane);
 
         mainWindow.pack();
         mainWindow.setLocationRelativeTo(null);

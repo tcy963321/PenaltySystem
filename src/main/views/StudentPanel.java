@@ -1,11 +1,10 @@
 package main.views;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+import main.Const;
 import main.models.Student;
 
 public class StudentPanel extends JPanel {
@@ -17,11 +16,10 @@ public class StudentPanel extends JPanel {
     private Border simpleBorder;
 
     public StudentPanel(Student s) {
-        setLayout(new BorderLayout());
+        setLayout(Const.BORDER_LAY_VGAP);
         
         // Add border for each student
-        simpleBorder = BorderFactory.createLineBorder(Color.black);
-        setBorder(simpleBorder);
+        setBorder(Const.BLACK_BORDER);
 
         lFullName = new JLabel("Name: " + s.getFullName());
         lMatrixId = new JLabel("Student id: " + s.getMatrixId());
