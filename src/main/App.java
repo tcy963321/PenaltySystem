@@ -2,9 +2,10 @@ package main;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import main.views.MainMenu;
 import main.views.StudentsListScreen;
 
-public class RunIt {
+public class App {
 
     private static JFrame mainWindow;
 
@@ -23,7 +24,7 @@ public class RunIt {
     }
 
     public static void showInitialGUI() {
-        mainWindow = new StudentsListScreen();
+        mainWindow = new MainMenu();
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         mainWindow.pack();
