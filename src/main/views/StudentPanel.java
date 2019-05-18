@@ -1,35 +1,33 @@
 package main.views;
 
-import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 import main.Const;
 import main.models.Student;
 
 public class StudentPanel extends JPanel {
 
-    private JLabel lFullName,
+    private final JLabel lFullName,
             lMatrixId,
             lIc,
             lRoomNumber;
-    private Border simpleBorder;
 
     public StudentPanel(Student s) {
-        setLayout(Const.BORDER_LAY_VGAP);
+        setLayout(Const.create1ColumnGrid(4));
         
         // Add border for each student
-        setBorder(Const.BLACK_BORDER);
+        setBorder(Const.createRaisedBorder(Const.DEFAULT_MARGIN));
 
         lFullName = new JLabel("Name: " + s.getFullName());
         lMatrixId = new JLabel("Student id: " + s.getMatrixId());
         lIc = new JLabel("IC / Passport: " + s.getIc());
         lRoomNumber = new JLabel("Room number: " + s.getRoomNumber());
 
-        //TODO: Fix items stacking on top of one another
-        add(lFullName, BorderLayout.CENTER);
-        add(lMatrixId, BorderLayout.CENTER);
-        add(lIc, BorderLayout.CENTER);
-        add(lRoomNumber, BorderLayout.CENTER);
+        add(lFullName);
+        add(lMatrixId);
+        add(lIc);
+        add(lRoomNumber);
+        
+        //TODO: Add click funcitonality
     }
 }

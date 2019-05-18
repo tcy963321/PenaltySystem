@@ -1,42 +1,57 @@
 package main.views;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import main.Const;
 import main.ViewData;
+import main.models.Student;
 
 public class StudentsListScreen extends JFrame {
 
-    private JPanel studentsList;
+    private JPanel studentsListView;
 
     public StudentsListScreen() {
+        // Get the list from our data binding class
+        List<Student> students = ViewData.getInstance().getAllStudents();
 
         // Display the students scrolling pane
         // And the instruction label
-        setLayout(Const.BORDER_LAY_VGAP);
+        setLayout(new BorderLayout());
 
         // Instruction label
         JLabel lInstruction = new JLabel("Select a student:");
+        lInstruction.setBorder(Const.createHorzBorder(Const.DEFAULT_MARGIN));
+        lInstruction.setBackground(Color.cyan);
+        lInstruction.setOpaque(true);
 
         // Put all student panels into a scrollable panel
-        studentsList = new JPanel(Const.BORDER_LAY_VGAP);
+        GridLayout glStd = Const.create1ColumnGrid(students.size());
+        studentsListView = new JPanel(glStd);
+        // Add padding
+        studentsListView.setBorder(Const.createBorder(Const.HALF_DEF_MARGIN));
 
-        ViewData.getInstance().getAllStudents().forEach((student) -> {
+        students.forEach((student) -> {
+            studentsListView.revalidate();
+
             // Add a new Student Panel and display it
             // below the previous one, for all students
             // in students list
             StudentPanel studentItem = new StudentPanel(student);
-            studentsList.add(studentItem, BorderLayout.CENTER);
-            revalidate();
-            repaint();
+            studentsListView.add(studentItem, BorderLayout.CENTER);
         });
 
+        JScrollPane studentsPane = new JScrollPane(studentsListView);
+        studentsPane.setPreferredSize(new Dimension(300, 600));
+
         add(lInstruction, BorderLayout.PAGE_START);
-        add(new JScrollPane(studentsList), BorderLayout.CENTER);
+        add(studentsPane, BorderLayout.CENTER);
         //TODO: Add Buttons
     }
 

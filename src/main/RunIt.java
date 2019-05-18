@@ -1,9 +1,7 @@
 package main;
 
-import java.awt.EventQueue;
 import javax.swing.JFrame;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.SwingUtilities;
 import main.views.StudentsListScreen;
 
 public class RunIt {
@@ -11,14 +9,20 @@ public class RunIt {
     private static JFrame mainWindow;
 
     public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
+        SwingUtilities.invokeLater(() -> {
+            /*
             try {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
                 System.out.println("Cannot set look and feel: " + e.getMessage());
             }
-        });
+             */
 
+            showInitialGUI();
+        });
+    }
+
+    public static void showInitialGUI() {
         mainWindow = new StudentsListScreen();
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

@@ -17,12 +17,10 @@ public class TwoButtons extends JPanel {
     public TwoButtons() {
 
         setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-        setBorder(Const.DEFAULT_BORDER);
+        setBorder(Const.createBorder(Const.DEFAULT_MARGIN));
         add(Box.createHorizontalGlue());
         add(bCancel);
         add(Box.createRigidArea(new Dimension(16, 0)));
         add(bOk);
-
-        //TODO: Display sutdent list with boxlayout / gridlayout
     }
 }
