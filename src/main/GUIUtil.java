@@ -9,7 +9,7 @@ import javax.swing.border.Border;
 /**
  * Class to store constants and utility methods
  */
-public class Const {
+public class GUIUtil {
 
     public static final int DEFAULT_MARGIN = 20;
     public static final int HALF_DEF_MARGIN = DEFAULT_MARGIN / 2;
@@ -44,6 +44,6 @@ public class Const {
         return new GridLayout(rows, 1, 0, 4);
     }
 
-    private Const() {
+    private GUIUtil() {
     }
 }

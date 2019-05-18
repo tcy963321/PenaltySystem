@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import main.Const;
+import main.GUIUtil;
 import main.ViewData;
 import main.models.Student;
 
@@ -27,15 +27,15 @@ public class StudentsListScreen extends JFrame {
 
         // Instruction label
         JLabel lInstruction = new JLabel("Select a student:");
-        lInstruction.setBorder(Const.createHorzBorder(Const.DEFAULT_MARGIN));
+        lInstruction.setBorder(GUIUtil.createHorzBorder(GUIUtil.DEFAULT_MARGIN));
         lInstruction.setBackground(Color.cyan);
         lInstruction.setOpaque(true);
 
         // Put all student panels into a scrollable panel
-        GridLayout glStd = Const.create1ColumnGrid(students.size());
+        GridLayout glStd = GUIUtil.create1ColumnGrid(students.size());
         studentsListView = new JPanel(glStd);
         // Add padding
-        studentsListView.setBorder(Const.createBorder(Const.HALF_DEF_MARGIN));
+        studentsListView.setBorder(GUIUtil.createBorder(GUIUtil.HALF_DEF_MARGIN));
 
         students.forEach((student) -> {
             studentsListView.revalidate();

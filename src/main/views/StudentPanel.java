@@ -2,7 +2,7 @@ package main.views;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import main.Const;
+import main.GUIUtil;
 import main.models.Student;
 
 public class StudentPanel extends JPanel {
@@ -13,10 +13,10 @@ public class StudentPanel extends JPanel {
             lRoomNumber;
 
     public StudentPanel(Student s) {
-        setLayout(Const.create1ColumnGrid(4));
+        setLayout(GUIUtil.create1ColumnGrid(4));
         
         // Add border for each student
-        setBorder(Const.createRaisedBorder(Const.DEFAULT_MARGIN));
+        setBorder(GUIUtil.createRaisedBorder(GUIUtil.DEFAULT_MARGIN));
 
         lFullName = new JLabel("Name: " + s.getFullName());
         lMatrixId = new JLabel("Student id: " + s.getMatrixId());
