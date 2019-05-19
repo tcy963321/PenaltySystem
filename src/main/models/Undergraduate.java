@@ -7,12 +7,7 @@ public class Undergraduate extends Student {
     }
 
     @Override
-    public String getType() {
-        return "UNDERGRADUATE";
-    }
-
-    @Override
     public float getMultiplier() {
-        return 1.5f;
+        return 1f;
     }
 }

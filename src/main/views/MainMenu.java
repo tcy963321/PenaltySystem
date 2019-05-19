@@ -14,35 +14,37 @@ public class MainMenu extends JFrame {
 
     public MainMenu() {
         super("SISWA UMT PENALTY SYSTEM");
-        JButton button0, button1, button2, button3, button4, button5;
+        JButton bNewStudent, bRules, bNewCase, bWarningLetter, bHistory, bExit;
 
         ImageIcon studentIcon = new ImageIcon(FileUtil.PIC1_PATH);
-        button0 = new JButton("Add New Student ", studentIcon);
+        bNewStudent = new JButton("Add New Student ", studentIcon);
 
         ImageIcon rulesIcon = new ImageIcon(FileUtil.PIC2_PATH);
-        button1 = new JButton("Rules Description", rulesIcon);
+        bRules = new JButton("Rules Description", rulesIcon);
 
-        ImageIcon penaltyIcon = new ImageIcon(FileUtil.PIC3_PATH);
-        button2 = new JButton("Penalty Form", penaltyIcon);
+        ImageIcon newCaseIcon = new ImageIcon(FileUtil.PIC3_PATH);
+        bNewCase = new JButton("File a New Case", newCaseIcon);
 
         ImageIcon reportIcon = new ImageIcon(FileUtil.PIC4_PATH);
-        button3 = new JButton("Warning Letter", reportIcon);
+        bWarningLetter = new JButton("Warning Letter", reportIcon);
 
-        button4 = new JButton("History");
+        bHistory = new JButton("History");
 
         ImageIcon exit = new ImageIcon(FileUtil.PIC6_PATH);
-        button5 = new JButton("Exit", exit);
+        bExit = new JButton("Exit", exit);
 
-        button0.addActionListener(Navigation.navigateToNewStudentScreen());
+        bNewStudent.addActionListener(Navigation.navigateToNewStudentScreen());
 
-        button1.addActionListener(new ActionListener() {
+        bRules.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
 //                Rules R = new Rules();
 
             }
         });
+        
+        bNewCase.addActionListener(Navigation.navigateToNewCaseScreen());
 
-        button3.addActionListener(new ActionListener() {
+        bWarningLetter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
 //                Report r = new Report();
 //                r.setVisible(true);
@@ -55,26 +57,26 @@ public class MainMenu extends JFrame {
             }
         });
 
-        button5.addActionListener((ActionEvent arg0) -> {
+        bExit.addActionListener((ActionEvent arg0) -> {
             dispose();
             System.exit(0);
         });
 
         Font myFont = new Font("Arial", Font.ITALIC | Font.BOLD, 20);
         myFont = myFont.deriveFont(20F);
-        button0.setFont(myFont);
-        button1.setFont(myFont);
-        button2.setFont(myFont);
-        button3.setFont(myFont);
-        button4.setFont(myFont);
-        button5.setFont(myFont);
+        bNewStudent.setFont(myFont);
+        bRules.setFont(myFont);
+        bNewCase.setFont(myFont);
+        bWarningLetter.setFont(myFont);
+        bHistory.setFont(myFont);
+        bExit.setFont(myFont);
 
-        add(button0);
-        add(button1);
-        add(button2);
-        add(button3);
-        add(button4);
-        add(button5);
+        add(bNewStudent);
+        add(bRules);
+        add(bNewCase);
+        add(bWarningLetter);
+        add(bHistory);
+        add(bExit);
         
         setLayout(new GridLayout(2, 3));
         setSize(1280, 800);

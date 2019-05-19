@@ -1,6 +1,8 @@
 package main.models;
 
-public class Student {
+public abstract class Student {
+    
+    public final String type = getClass().getName();
 
     private String fullName,
             matrixId,
@@ -86,18 +88,12 @@ public class Student {
     public void setTimesRulesAreBroken(int timesRulesAreBroken) {
         this.timesRulesAreBroken = timesRulesAreBroken;
     }
-
-    public String getType() {
-        return "STUDENT";
-    }
     
     /**
      * How much to multiply from normal penalty charges
      * @return multiplier
      */
-    public float getMultiplier() {
-        return 1f;
-    }
+    public abstract float getMultiplier();
 
     @Override
     public String toString() {
@@ -109,7 +105,7 @@ public class Student {
                 + "Faculty: %s\n"
                 + "Phone number: %s\n"
                 + "Have broken %d rules.",
-                getType(), fullName, matrixId, ic, course, faculty,
+                type, fullName, matrixId, ic, course, faculty,
                 phoneNumber, timesRulesAreBroken);
     }
 }

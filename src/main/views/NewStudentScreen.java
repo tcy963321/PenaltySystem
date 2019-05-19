@@ -112,9 +112,4 @@ public class NewStudentScreen extends JFrame {
         //TODO: Make undergrad, master, postgrad class
 
     }
-
-    @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(600, 400);
-    }
 }

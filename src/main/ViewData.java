@@ -32,7 +32,7 @@ public class ViewData {
     }
     
     public List<Student> getAllStudents() {
-        //StudentsDA.getInstance().studentsDemoData();
+        StudentsDA.getInstance().studentsDemoData();
         return StudentsDA.getInstance().getStudents();
     }
 }
