@@ -90,6 +90,14 @@ public class Student {
     public String getType() {
         return "STUDENT";
     }
+    
+    /**
+     * How much to multiply from normal penalty charges
+     * @return multiplier
+     */
+    public float getMultiplier() {
+        return 1f;
+    }
 
     @Override
     public String toString() {
