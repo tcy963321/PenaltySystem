@@ -1,5 +1,6 @@
 package main;
 
+import main.util.FileUtil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -28,6 +29,7 @@ public class Navigation {
         return (ActionEvent e) -> {
             StudentsListScreen frame = new StudentsListScreen();
 
+            frame.setSize(frame.getPreferredSize());
             frame.setLocationRelativeTo(null);
             ImageIcon img = new ImageIcon(FileUtil.LOGO_PATH);
             frame.setIconImage(img.getImage());

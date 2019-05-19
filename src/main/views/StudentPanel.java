@@ -2,7 +2,7 @@ package main.views;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import main.GUIUtil;
+import main.util.GUIUtil;
 import main.models.Student;
 
 public class StudentPanel extends JPanel {

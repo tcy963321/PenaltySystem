@@ -5,7 +5,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import main.GUIUtil;
+import main.util.GUIUtil;
 
 /**
  * OK Button (right) and cancel button (left) for most screens

@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import main.FileUtil;
+import main.util.FileUtil;
 import main.Navigation;
 
 public class MainMenu extends JFrame {

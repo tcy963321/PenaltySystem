@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import main.RuntimeTypeAdapterFactory;
+import main.util.RuntimeTypeAdapterFactory;
 import main.models.Masters;
 import main.models.PHD;
 import main.models.Student;
