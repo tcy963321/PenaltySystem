@@ -1,9 +1,14 @@
 package main;
 
+import java.awt.Window;
 import main.util.FileUtil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import main.models.Student;
 import main.views.NewStudentScreen;
 import main.views.StudentsListScreen;
 
@@ -22,6 +27,26 @@ public class Navigation {
             ImageIcon img = new ImageIcon(FileUtil.LOGO_PATH);
             frame.setIconImage(img.getImage());
             frame.setVisible(true);
+        };
+    }
+
+    //TODO: Hook this to new student button
+    public static ActionListener saveStudentAndGoHome(Student student) {
+        return (ActionEvent e) -> {
+
+            Window currentScreen
+                    = SwingUtilities.windowForComponent((JButton) e.getSource());
+            currentScreen.dispose();
+
+            ViewData.getInstance().saveStudent(student);
+        };
+    }
+
+    public static ActionListener closeWindow() {
+        return (ActionEvent e) -> {
+            Window currentScreen
+                    = SwingUtilities.windowForComponent((JButton) e.getSource());
+            currentScreen.dispose();
         };
     }
 

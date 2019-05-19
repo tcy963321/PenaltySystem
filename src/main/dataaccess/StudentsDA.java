@@ -60,6 +60,16 @@ public class StudentsDA {
         saveStudentsLocally(studentsJson);
     }
 
+    /**
+     * Add new student and save it locally
+     * @param student
+     */
+    public void saveNewStudent(Student student) {
+        List<Student> students = getStudents();
+        students.add(student);
+        saveStudents(students);
+    }
+
     private void saveStudentsLocally(String studentsJson) {
         try {
             FileUtils.writeStringToFile(

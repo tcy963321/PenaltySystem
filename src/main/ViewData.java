@@ -35,4 +35,8 @@ public class ViewData {
         StudentsDA.getInstance().studentsDemoData();
         return StudentsDA.getInstance().getStudents();
     }
+    
+    public void saveStudent(Student student) {
+        StudentsDA.getInstance().saveNewStudent(student);
+    }
 }

@@ -1,6 +1,5 @@
 package main.views;
 
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -109,7 +108,6 @@ public class NewStudentScreen extends JFrame {
         add(cancelbut);
         
         //TODO: Add button functionality
-        //TODO: Make undergrad, master, postgrad class
 
     }
 }
