@@ -14,9 +14,9 @@ import org.apache.commons.io.FileUtils;
 // Singleton for data input / output
 public class RulesDA {
 
-    private final String RULES_PATH = RootDA.ROOT_PATH + "rules_ps.json";
+    private static final String RULES_PATH = RootDA.ROOT_PATH + "rules_ps.json";
 
-    private final Type RULES_SERIALIZATION_TYPE
+    private static final Type RULES_SERIALIZATION_TYPE
             = new TypeToken<List<Rule>>() {
             }.getType();
 
