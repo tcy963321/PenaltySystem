@@ -25,7 +25,9 @@ public class ViewData {
         }
         return instance;
     }
-
+    
+    public Student penaltySelectedStudent;
+    
     public List<Rule> getAllRules() {
         return RulesDA.getInstance().getRules();
     }

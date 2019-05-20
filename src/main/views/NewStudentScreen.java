@@ -160,6 +160,8 @@ public class NewStudentScreen extends JFrame {
                 ));
             }
         });
-        bCancel.addActionListener(Navigation.closeWindow());
+        bCancel.addActionListener((ActionEvent e) -> {
+            Navigation.closeWindow(bCancel);
+        });
     }
 }

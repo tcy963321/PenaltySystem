@@ -2,11 +2,9 @@ package main.views;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import main.util.GUIUtil;
 import main.ViewData;
@@ -27,7 +25,7 @@ public class StudentsListScreen extends JFrame {
         JLabel lInstruction = new JLabel("All students recorded so far:");
         lInstruction.setBorder(GUIUtil.createBorder(GUIUtil.DEFAULT_MARGIN));
 
-        StudentsListView studentsListView = new StudentsListView();
+        StudentsListView studentsListView = new StudentsListView(null);
 
         JScrollPane studentsPane = new JScrollPane(studentsListView);
         //studentsPane.setPreferredSize(new Dimension(300, 600));

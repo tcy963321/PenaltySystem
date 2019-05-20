@@ -1,20 +1,32 @@
 package main;
 
+import java.awt.Dimension;
 import java.awt.Window;
 import main.util.FileUtil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import main.models.Student;
 import main.views.NewCaseForm;
 import main.views.NewStudentScreen;
 import main.views.RulesScreen;
 import main.views.StudentsListScreen;
+import main.views.StudentsListView;
+import oracle.jrockit.jfr.JFR;
 
 public class Navigation {
-    
+
+    public interface PenaltyFormListener {
+
+        void onPenaltyStudentSelected();
+    }
+
     private Navigation() {
     }
 
@@ -30,11 +42,11 @@ public class Navigation {
             frame.setVisible(true);
         };
     }
-    
+
     public static ActionListener navigateToRulesScreen() {
         return (ActionEvent e) -> {
             RulesScreen frame = new RulesScreen();
-            
+
             frame.setLocationRelativeTo(null);
             ImageIcon img = new ImageIcon(FileUtil.LOGO_PATH);
             frame.setIconImage(img.getImage());
@@ -44,21 +56,17 @@ public class Navigation {
 
     //TODO: Hook this to new student button
     public static void saveStudentAndGoHome(JButton button, Student student) {
-            Window currentScreen
-                    = SwingUtilities.windowForComponent(button);
-            currentScreen.dispose();
+        closeWindow(button);
 
-            ViewData.getInstance().saveStudent(student);
+        ViewData.getInstance().saveStudent(student);
     }
 
-    public static ActionListener closeWindow() {
-        return (ActionEvent e) -> {
-            Window currentScreen
-                    = SwingUtilities.windowForComponent((JButton) e.getSource());
-            currentScreen.dispose();
-        };
+    public static void closeWindow(JComponent component) {
+        Window currentScreen
+                = SwingUtilities.windowForComponent(component);
+        currentScreen.dispose();
     }
-    
+
     public static ActionListener navigateToNewCaseScreen() {
         return (ActionEvent e) -> {
             NewCaseForm frame = new NewCaseForm();
@@ -75,12 +83,24 @@ public class Navigation {
     public static ActionListener navigateToStudentListScreen() {
         return (ActionEvent e) -> {
             StudentsListScreen frame = new StudentsListScreen();
-            
+
             frame.setSize(frame.getPreferredSize());
             frame.setLocationRelativeTo(null);
             ImageIcon img = new ImageIcon(FileUtil.LOGO_PATH);
             frame.setIconImage(img.getImage());
             frame.setVisible(true);
         };
+    }
+
+    public static void showSelectStudentDialog(PenaltyFormListener penaltyScreen) {
+        JFrame frame = new JFrame("Select a Student:");
+
+        StudentsListView slv = new StudentsListView(penaltyScreen);
+        frame.add(slv);
+        ImageIcon img = new ImageIcon(FileUtil.LOGO_PATH);
+        frame.setSize(new Dimension(480, 800));
+        frame.setIconImage(img.getImage());
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 }

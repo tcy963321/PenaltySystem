@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,11 +14,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import main.Navigation;
 import main.ViewData;
 import main.models.Rule;
+import main.models.Student;
 import main.util.GUIUtil;
 
-public class NewCaseForm extends JFrame {
+public class NewCaseForm extends JFrame implements Navigation.PenaltyFormListener {
 
     JLabel lForm, lName, lPosition, lDepartment, lDate, lTo, lStudent, lChosenStudent, lStudentId, lWarning, lRulesTitle;
     JTextField tfName, tfPosition, tfDepartment, tfDate, tfStudentName, tfStudentId;
@@ -64,6 +68,11 @@ public class NewCaseForm extends JFrame {
         tfStudentId = new JTextField(40);
         tfWarning = new JTextArea(40, 90);
         bChooseStudent = new JButton("Select Student");
+        
+        // Opens the student list dialog where admin can select a student
+        bChooseStudent.addActionListener((ActionEvent e) -> {
+            Navigation.showSelectStudentDialog(this);
+        });
 
         panel1.add(lName);
         panel1.add(tfName);
@@ -111,5 +120,15 @@ public class NewCaseForm extends JFrame {
     public Dimension getPreferredSize() {
         //TODO: Fix warning
         return new Dimension(1050, 900);
+    }
+
+    @Override
+    public void onPenaltyStudentSelected() {
+        Student student = ViewData.getInstance().penaltySelectedStudent;
+        if (student != null) {
+            lChosenStudent.setText(student.getFullName());
+        } else {
+            lChosenStudent.setText("*None selected");
+        }
     }
 }
