@@ -2,8 +2,6 @@ package main.views;
 
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,26 +24,13 @@ public class MainMenu extends JFrame {
         bNewCase = new JButton("File a New Case", newCaseIcon);
 
         ImageIcon reportIcon = new ImageIcon(FileUtil.PIC4_PATH);
-        bWarningLetter = new JButton("Warning Letter", reportIcon);
+        bWarningLetter = new JButton("History", reportIcon);
 
         bNewStudent.addActionListener(Navigation.navigateToNewStudentScreen());
 
         bRules.addActionListener(Navigation.navigateToRulesScreen());
         
         bNewCase.addActionListener(Navigation.navigateToNewCaseScreen());
-
-        bWarningLetter.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-//                Report r = new Report();
-//                r.setVisible(true);
-//                r.setSize(950, 900);
-//                r.setResizable(false);
-//                r.setLocationRelativeTo(null);
-//                ImageIcon img = new ImageIcon("./logo1.jpg");
-//                r.setIconImage(img.getImage());
-
-            }
-        });
 
         Font myFont = new Font("Arial", Font.ITALIC | Font.BOLD, 20);
         myFont = myFont.deriveFont(20F);
