@@ -137,12 +137,12 @@ public class StudentsDA {
     public void studentsDemoData() {
         List<Student> myStudents = new ArrayList<>();
 
-        myStudents.add(new Masters("Bro Handsom", "S51321", "99110019231931", "software engineering", "PPIMG", "012313141", "B2-516", 0));
-        myStudents.add(new Undergraduate("Yo asd", "S23412", "99110019231931", "software engineering", "PPIMG", "012313141", "B2-516", 0));
-        myStudents.add(new PHD("Teenage guy", "S51321", "99110019231931", "software engineering", "PPIMG", "012313141", "B2-516", 0));
-        myStudents.add(new Masters("Girl", "S51321", "99110019231931", "software engineering", "PPIMG", "012313141", "B2-516", 0));
-        myStudents.add(new PHD("Bro Handsom", "S51321", "99110019231931", "software engineering", "PPIMG", "012313141", "B2-516", 0));
-        myStudents.add(new PHD("Bro Handsom", "S51321", "99110019231931", "software engineering", "PPIMG", "012313141", "B2-516", 0));
+        myStudents.add(new Masters("Robert Stevens", "S51321", "99110019231931", "software engineering", "PPIMG", "012313141", "B2-516", 0));
+        myStudents.add(new Undergraduate("Tan", "S23412", "99110019231931", "software engineering", "PPIMG", "012313141", "B2-516", 0));
+        myStudents.add(new PHD("Alif", "S51123", "99110019231931", "software engineering", "PPIMG", "012313141", "B2-516", 0));
+        myStudents.add(new Masters("Syed", "S41321", "99110019231931", "software engineering", "PPIMG", "012313141", "B2-516", 0));
+        myStudents.add(new PHD("John", "S11321", "99110019231931", "software engineering", "PPIMG", "012313141", "B2-516", 0));
+        myStudents.add(new PHD("Bro Handsom", "S01321", "99110019231931", "software engineering", "PPIMG", "012313141", "B2-516", 0));
 
         saveStudents(myStudents);
     }
