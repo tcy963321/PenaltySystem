@@ -2,7 +2,7 @@ package main.models;
 
 public abstract class Student {
     
-    public final String type = getClass().getName();
+    public String type = getClass().getName();
 
     private String fullName,
             matrixId,

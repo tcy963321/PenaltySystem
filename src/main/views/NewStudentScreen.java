@@ -1,17 +1,23 @@
 package main.views;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import main.Navigation;
+import main.models.Masters;
+import main.models.PHD;
+import main.models.Undergraduate;
 
 public class NewStudentScreen extends JFrame {
 
-    JLabel name, matrix, identity, course, faculty, phone, space, studentType;
-    JTextField tfName, tfMatrix, tfIC, tfCourse, tfFaculty, tfPhone;
+    JLabel name, matrix, identity, course, faculty, phone, roomNumber, space, studentType;
+    JTextField tfName, tfMatrix, tfIC, tfCourse, tfFaculty, tfPhone,  tfRoomNumber;
     JRadioButton rbUndergraduate, rbMaster, rbPostgraduate;
 
     public NewStudentScreen() {
@@ -82,6 +88,16 @@ public class NewStudentScreen extends JFrame {
         add(space);
         space = new JLabel("                                                                                ");
         add(space);
+        
+        roomNumber = new JLabel("Room Number                                       ", SwingConstants.RIGHT);
+        add(roomNumber);
+        tfRoomNumber = new JTextField(41);
+        add(tfRoomNumber);
+
+        space = new JLabel(" ");
+        add(space);
+        space = new JLabel("                                                                                ");
+        add(space);
 
         studentType = new JLabel("Student Type                                        ", SwingConstants.RIGHT);
         add(studentType);
@@ -102,12 +118,48 @@ public class NewStudentScreen extends JFrame {
         space = new JLabel("                                                     ");
         add(space);
 
-        JButton okbut = new JButton("           Add           ");
-        add(okbut);
-        JButton cancelbut = new JButton("        Cancel        ");
-        add(cancelbut);
+        JButton bAdd = new JButton("           Add           ");
+        add(bAdd);
+        JButton bCancel = new JButton("        Cancel        ");
+        add(bCancel);
         
         //TODO: Add button functionality
-
+        bAdd.addActionListener((ActionEvent e) -> {
+            if (rbUndergraduate.isSelected()) {
+                Navigation.saveStudentAndGoHome(bAdd, new Undergraduate(
+                        tfName.getText(),
+                        tfMatrix.getText(),
+                        tfIC.getText(),
+                        tfCourse.getText(),
+                        tfFaculty.getText(),
+                        tfPhone.getText(),
+                        tfRoomNumber.getText(),
+                        0
+                ));
+            } else if (rbMaster.isSelected()) {
+                Navigation.saveStudentAndGoHome(bAdd, new Masters(
+                        tfName.getText(),
+                        tfMatrix.getText(),
+                        tfIC.getText(),
+                        tfCourse.getText(),
+                        tfFaculty.getText(),
+                        tfPhone.getText(),
+                        tfRoomNumber.getText(),
+                        0
+                ));
+            } else if (rbPostgraduate.isSelected()) {
+                Navigation.saveStudentAndGoHome(bAdd, new PHD(
+                        tfName.getText(),
+                        tfMatrix.getText(),
+                        tfIC.getText(),
+                        tfCourse.getText(),
+                        tfFaculty.getText(),
+                        tfPhone.getText(),
+                        tfRoomNumber.getText(),
+                        0
+                ));
+            }
+        });
+        bCancel.addActionListener(Navigation.closeWindow());
     }
 }

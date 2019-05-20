@@ -44,6 +44,7 @@ public class StudentsDA {
                 .registerSubtype(PHD.class, PHD.class.getName());
 
         return new GsonBuilder()
+                .setPrettyPrinting()
                 .registerTypeAdapterFactory(adapter)
                 .create();
     }
@@ -55,6 +56,17 @@ public class StudentsDA {
      */
     public void saveStudents(List<Student> students) {
 
+        // Reset the type
+        students.forEach((student) -> {
+            if (student instanceof Undergraduate) {
+                ((Undergraduate) student).type = Undergraduate.class.getName();
+            } else if (student instanceof Masters) {
+                ((Masters) student).type = Masters.class.getName();
+            } else if (student instanceof PHD) {
+                ((PHD) student).type = PHD.class.getName();
+            }
+        });
+
         String studentsJson = getGson().toJson(students);
 
         saveStudentsLocally(studentsJson);
@@ -62,6 +74,7 @@ public class StudentsDA {
 
     /**
      * Add new student and save it locally
+     *
      * @param student
      */
     public void saveNewStudent(Student student) {
@@ -100,7 +113,9 @@ public class StudentsDA {
         Type studentsListType = new TypeToken<List<Student>>() {
         }.getType();
 
-        return getGson().fromJson(dataAsJson, studentsListType);
+        List<Student> students = getGson().fromJson(dataAsJson, studentsListType);
+
+        return students;
     }
 
     /**
