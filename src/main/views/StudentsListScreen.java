@@ -14,8 +14,6 @@ import main.models.Student;
 
 public class StudentsListScreen extends JFrame {
 
-    private JPanel studentsListView;
-
     public StudentsListScreen() {
         super("List of Students");
         // Get the list from our data binding class
@@ -29,21 +27,7 @@ public class StudentsListScreen extends JFrame {
         JLabel lInstruction = new JLabel("All students recorded so far:");
         lInstruction.setBorder(GUIUtil.createBorder(GUIUtil.DEFAULT_MARGIN));
 
-        // Put all student panels into a scrollable panel
-        GridLayout glStd = GUIUtil.create1ColumnGrid(students.size());
-        studentsListView = new JPanel(glStd);
-        // Add padding
-        studentsListView.setBorder(GUIUtil.createBorder(GUIUtil.HALF_DEF_MARGIN));
-
-        students.forEach((student) -> {
-            studentsListView.revalidate();
-
-            // Add a new Student Panel and display it
-            // below the previous one, for all students
-            // in students list
-            StudentPanel studentItem = new StudentPanel(student);
-            studentsListView.add(studentItem);
-        });
+        StudentsListView studentsListView = new StudentsListView();
 
         JScrollPane studentsPane = new JScrollPane(studentsListView);
         //studentsPane.setPreferredSize(new Dimension(300, 600));
