@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 /**
@@ -39,9 +42,25 @@ public class GUIUtil {
     public static BorderLayout createBorderLay(int horGap, int verGap) {
         return new BorderLayout(horGap, verGap);
     }
+    
+    public static BoxLayout simpleVerticalLay(JPanel panel) {
+        return new BoxLayout(panel, BoxLayout.Y_AXIS);
+    }
 
     public static GridLayout create1ColumnGrid(int rows) {
         return new GridLayout(rows, 1, 0, 4);
+    }
+    
+    public static GridLayout create2ColumnGrid(int rows) {
+        return new GridLayout(rows, 2, 0, 4);
+    }
+    
+    public static JLabel space(int length) {
+        StringBuilder sb = new StringBuilder("");
+        for (int i = 0; i < length; i++) {
+            sb.append(" ");
+        }
+        return new JLabel(sb.toString());
     }
 
     private GUIUtil() {

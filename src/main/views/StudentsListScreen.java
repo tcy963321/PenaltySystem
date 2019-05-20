@@ -42,15 +42,14 @@ public class StudentsListScreen extends JFrame {
             // below the previous one, for all students
             // in students list
             StudentPanel studentItem = new StudentPanel(student);
-            studentsListView.add(studentItem, BorderLayout.CENTER);
+            studentsListView.add(studentItem);
         });
 
         JScrollPane studentsPane = new JScrollPane(studentsListView);
-        studentsPane.setPreferredSize(new Dimension(300, 600));
+        //studentsPane.setPreferredSize(new Dimension(300, 600));
 
         add(lInstruction, BorderLayout.PAGE_START);
         add(studentsPane, BorderLayout.CENTER);
-        //TODO: Add Buttons
     }
 
     @Override
