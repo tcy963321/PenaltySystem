@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import main.models.Penalty;
 import main.models.Student;
+import main.views.DisplayReportScreen;
 import main.views.NewCaseForm;
 import main.views.NewStudentScreen;
 import main.views.RulesScreen;
@@ -104,7 +105,7 @@ public class Navigation {
 
     public static ActionListener navigateToDisplayReport(Penalty data) {
         return (ActionEvent e) -> {
-            StudentsListScreen frame = new StudentsListScreen();
+            DisplayReportScreen frame = new DisplayReportScreen(data);
 
             frame.setSize(frame.getPreferredSize());
             frame.setLocationRelativeTo(null);

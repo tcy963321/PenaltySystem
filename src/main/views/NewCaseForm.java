@@ -129,9 +129,16 @@ public class NewCaseForm extends JFrame implements Navigation.PenaltyFormListene
             );
         });
 
+        bCancel = new JButton("Cancel");
         bCancel.addActionListener((ActionEvent e) -> {
             Navigation.closeWindow(bCancel);
         });
+        
+        JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        buttons.add(bSubmit);
+        buttons.add(bCancel);
+        
+        rootPanel.add(buttons);
 
         JScrollPane spRules = new JScrollPane(rootPanel);
         add(spRules, BorderLayout.CENTER);
