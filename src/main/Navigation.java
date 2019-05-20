@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 import main.models.Student;
+import main.views.NewCaseForm;
 import main.views.NewStudentScreen;
 import main.views.RulesScreen;
 import main.views.StudentsListScreen;
@@ -57,11 +58,24 @@ public class Navigation {
             currentScreen.dispose();
         };
     }
-
+    
     public static ActionListener navigateToNewCaseScreen() {
         return (ActionEvent e) -> {
-            StudentsListScreen frame = new StudentsListScreen();
+            NewCaseForm frame = new NewCaseForm();
 
+            frame.setSize(frame.getPreferredSize());
+            frame.setLocationRelativeTo(null);
+            ImageIcon img = new ImageIcon(FileUtil.LOGO_PATH);
+            frame.setIconImage(img.getImage());
+            frame.pack();
+            frame.setVisible(true);
+        };
+    }
+
+    public static ActionListener navigateToStudentListScreen() {
+        return (ActionEvent e) -> {
+            StudentsListScreen frame = new StudentsListScreen();
+            
             frame.setSize(frame.getPreferredSize());
             frame.setLocationRelativeTo(null);
             ImageIcon img = new ImageIcon(FileUtil.LOGO_PATH);

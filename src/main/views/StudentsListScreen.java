@@ -1,7 +1,6 @@
 package main.views;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.List;
@@ -18,6 +17,7 @@ public class StudentsListScreen extends JFrame {
     private JPanel studentsListView;
 
     public StudentsListScreen() {
+        super("List of Students");
         // Get the list from our data binding class
         List<Student> students = ViewData.getInstance().getAllStudents();
 

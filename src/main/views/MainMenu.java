@@ -12,7 +12,7 @@ public class MainMenu extends JFrame {
 
     public MainMenu() {
         super("SISWA UMT PENALTY SYSTEM");
-        JButton bNewStudent, bRules, bNewCase, bStudentsList, bHistory, bExit;
+        JButton bNewStudent, bRules, bNewCase, bStudentsList;
 
         ImageIcon studentIcon = new ImageIcon(FileUtil.PIC1_PATH);
         bNewStudent = new JButton("Add New Student ", studentIcon);
@@ -30,7 +30,9 @@ public class MainMenu extends JFrame {
 
         bRules.addActionListener(Navigation.navigateToRulesScreen());
 
-        bStudentsList.addActionListener(Navigation.navigateToNewCaseScreen());
+        bStudentsList.addActionListener(Navigation.navigateToStudentListScreen());
+        
+        bNewCase.addActionListener(Navigation.navigateToNewCaseScreen());
 
         Font myFont = new Font("Arial", Font.ITALIC | Font.BOLD, 20);
         myFont = myFont.deriveFont(20F);
