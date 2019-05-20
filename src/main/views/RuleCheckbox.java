@@ -9,10 +9,13 @@ import main.models.Rule;
 
 public class RuleCheckbox extends JPanel {
 
+    private Rule rule;
     private JLabel lRule;
     private JCheckBox cb;
     
     public RuleCheckbox(Rule rule) {
+        this.rule = rule;
+        
         setLayout(new BorderLayout());
         
         lRule = new JLabel(rule.getDescription());
@@ -22,6 +25,14 @@ public class RuleCheckbox extends JPanel {
         
         add(lRule, BorderLayout.LINE_START);
         add(cb, BorderLayout.LINE_END);
+    }
+
+    public Rule getRule() {
+        return rule;
+    }
+
+    public void setRule(Rule rule) {
+        this.rule = rule;
     }
     
     public boolean isSelected() {

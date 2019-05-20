@@ -16,6 +16,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import main.Navigation;
 import main.ViewData;
+import main.models.Penalty;
 import main.models.Rule;
 import main.models.Student;
 import main.util.GUIUtil;
@@ -26,7 +27,7 @@ public class NewCaseForm extends JFrame implements Navigation.PenaltyFormListene
     JTextField tfName, tfPosition, tfDepartment, tfDate, tfStudentName, tfStudentId;
     JTextArea tfWarning;
     JPanel panel1, ruleRows, rootPanel;
-    JButton bChooseStudent;
+    JButton bChooseStudent, bSubmit, bCancel;
 
     public NewCaseForm() {
         setTitle("New Penalty");
@@ -68,7 +69,7 @@ public class NewCaseForm extends JFrame implements Navigation.PenaltyFormListene
         tfStudentId = new JTextField(40);
         tfWarning = new JTextArea(40, 90);
         bChooseStudent = new JButton("Select Student");
-        
+
         // Opens the student list dialog where admin can select a student
         bChooseStudent.addActionListener((ActionEvent e) -> {
             Navigation.showSelectStudentDialog(this);
@@ -111,6 +112,26 @@ public class NewCaseForm extends JFrame implements Navigation.PenaltyFormListene
         rootPanel.add(panel1);
         rootPanel.add(lRulesTitle);
         rootPanel.add(ruleRows);
+
+        bSubmit = new JButton("Submit");
+        bSubmit.addActionListener((ActionEvent e) -> {
+
+            Navigation.closeWindow(bSubmit);
+
+            Navigation.navigateToDisplayReport(new Penalty(
+                    tfName.getText(),
+                    tfPosition.getText(),
+                    tfDepartment.getText(),
+                    tfDate.getText(),
+                    tfWarning.getText(),
+                    ViewData.getInstance().penaltySelectedStudent,
+                    pCalculation.getSelectedRules())
+            );
+        });
+
+        bCancel.addActionListener((ActionEvent e) -> {
+            Navigation.closeWindow(bCancel);
+        });
 
         JScrollPane spRules = new JScrollPane(rootPanel);
         add(spRules, BorderLayout.CENTER);
