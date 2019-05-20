@@ -103,15 +103,13 @@ public class Navigation {
         frame.setVisible(true);
     }
 
-    public static ActionListener navigateToDisplayReport(Penalty data) {
-        return (ActionEvent e) -> {
-            DisplayReportScreen frame = new DisplayReportScreen(data);
+    public static void navigateToDisplayReport(Penalty data) {
+        DisplayReportScreen frame = new DisplayReportScreen(data);
 
-            frame.setSize(frame.getPreferredSize());
-            frame.setLocationRelativeTo(null);
-            ImageIcon img = new ImageIcon(FileUtil.LOGO_PATH);
-            frame.setIconImage(img.getImage());
-            frame.setVisible(true);
-        };
+        frame.setSize(frame.getPreferredSize());
+        frame.setLocationRelativeTo(null);
+        ImageIcon img = new ImageIcon(FileUtil.LOGO_PATH);
+        frame.setIconImage(img.getImage());
+        frame.setVisible(true);
     }
 }

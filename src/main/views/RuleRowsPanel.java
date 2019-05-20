@@ -14,6 +14,7 @@ public class RuleRowsPanel extends JPanel {
     private JPanel pRulesList;
 
     public RuleRowsPanel(List<Rule> rules) {
+        rcList = new ArrayList<>();
         setLayout(new BorderLayout());
 
         GridLayout glStd = GUIUtil.create1ColumnGrid(rules.size());
@@ -25,6 +26,7 @@ public class RuleRowsPanel extends JPanel {
             pRulesList.revalidate();
 
             RuleCheckbox cbRule = new RuleCheckbox(rule);
+            rcList.add(cbRule);
             pRulesList.add(cbRule);
             prefHeight += cbRule.getHeight();
         }

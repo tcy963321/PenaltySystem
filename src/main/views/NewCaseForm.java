@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,14 +22,14 @@ import main.util.GUIUtil;
 
 public class NewCaseForm extends JFrame implements Navigation.PenaltyFormListener {
 
-    JLabel lForm, lName, lPosition, lDepartment, lDate, lTo, lStudent, lChosenStudent, lStudentId, lWarning, lRulesTitle;
-    JTextField tfName, tfPosition, tfDepartment, tfDate, tfStudentName, tfStudentId;
+    JLabel lForm, lName, lPosition, lDepartment, lDate, lTo, lChosenStudent, lStudentId, lWarning, lRulesTitle;
+    JTextField tfName, tfPosition, tfDepartment, tfDate;
     JTextArea tfWarning;
     JPanel panel1, ruleRows, rootPanel;
     JButton bChooseStudent, bSubmit, bCancel;
 
     public NewCaseForm() {
-        setTitle("New Penalty");
+        setTitle("New Penalty Letter");
         setLayout(GUIUtil.createBorderLay(0, 0));
 
         rootPanel = new JPanel();
@@ -52,8 +51,6 @@ public class NewCaseForm extends JFrame implements Navigation.PenaltyFormListene
         lDate.setFont(new Font("Serif", Font.BOLD, 14));
         lTo = new JLabel("To:");
         lTo.setFont(new Font("Serif", Font.BOLD, 20));
-        lStudent = new JLabel("Student:");
-        lStudent.setFont(new Font("Serif", Font.BOLD, 14));
         lChosenStudent = new JLabel("*None");
         lChosenStudent.setFont(new Font("Serif", Font.BOLD, 14));
         lStudentId = new JLabel("Student ID:");
@@ -65,8 +62,6 @@ public class NewCaseForm extends JFrame implements Navigation.PenaltyFormListene
         tfPosition = new JTextField(40);
         tfDepartment = new JTextField(40);
         tfDate = new JTextField(40);
-        tfStudentName = new JTextField(40);
-        tfStudentId = new JTextField(40);
         tfWarning = new JTextArea(40, 90);
         bChooseStudent = new JButton("Select Student");
 
@@ -88,13 +83,9 @@ public class NewCaseForm extends JFrame implements Navigation.PenaltyFormListene
         panel1.add(tfDate);
         panel1.add(GUIUtil.space(170));
         panel1.add(lTo);
-        //TODO: Make To a droplist
-        panel1.add(tfStudentName);
-        panel1.add(GUIUtil.space(160));
-        panel1.add(lStudent);
         panel1.add(bChooseStudent);
         panel1.add(lChosenStudent);
-        panel1.add(GUIUtil.space(250));
+        panel1.add(GUIUtil.space(300));
         panel1.add(lWarning);
         panel1.add(tfWarning);
 
@@ -115,9 +106,7 @@ public class NewCaseForm extends JFrame implements Navigation.PenaltyFormListene
 
         bSubmit = new JButton("Submit");
         bSubmit.addActionListener((ActionEvent e) -> {
-
-            Navigation.closeWindow(bSubmit);
-
+            
             Navigation.navigateToDisplayReport(new Penalty(
                     tfName.getText(),
                     tfPosition.getText(),
@@ -127,6 +116,8 @@ public class NewCaseForm extends JFrame implements Navigation.PenaltyFormListene
                     ViewData.getInstance().penaltySelectedStudent,
                     pCalculation.getSelectedRules())
             );
+
+            Navigation.closeWindow(bSubmit);
         });
 
         bCancel = new JButton("Cancel");

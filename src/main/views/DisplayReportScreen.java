@@ -19,7 +19,7 @@ public class DisplayReportScreen extends JFrame {
 
     JTextArea taFinal = new JTextArea();
     JButton save = new JButton("Save");
-    JButton exit = new JButton("Exit");
+    JButton cancel = new JButton("Cancel");
 
     public DisplayReportScreen(Penalty data) {
         setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -37,12 +37,12 @@ public class DisplayReportScreen extends JFrame {
                 + data.getStudent().getMatrixId() + "\n" + "\n" + " "
                 + data.getWarning());
 
+        taFinal.setFont(new Font("Arial", Font.BOLD, 12));
         taFinal.setBounds(10, 10, 1000, 850);
         taFinal.setLineWrap(true);
         taFinal.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(taFinal);
         add(scrollPane, BorderLayout.CENTER);
-        taFinal.setFont(new Font("Arial", Font.BOLD, 12));
 
         //save.addActionListener(new ActionListener(){
         //  public void actionPerformed(ActionEvent arg0)
@@ -57,20 +57,20 @@ public class DisplayReportScreen extends JFrame {
             FileUtil.writeToTxtFile(output, taFinal.getText());
         });
 
-        exit.addActionListener((ActionEvent e) -> {
+        cancel.addActionListener((ActionEvent e) -> {
             int n = JOptionPane.showConfirmDialog(null,
                     "Are you sure you want to exit?", "Exit?", JOptionPane.YES_NO_OPTION);
             if (n == JOptionPane.YES_OPTION) {
                 dispose();
             }
         });
-        
+
         add(save);
-        add(exit);
+        add(cancel);
     }
 
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(1030, 600);
+        return new Dimension(1030, 400);
     }
 }
