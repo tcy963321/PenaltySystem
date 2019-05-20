@@ -12,7 +12,7 @@ public class MainMenu extends JFrame {
 
     public MainMenu() {
         super("SISWA UMT PENALTY SYSTEM");
-        JButton bNewStudent, bRules, bNewCase, bWarningLetter, bHistory, bExit;
+        JButton bNewStudent, bRules, bNewCase, bStudentsList, bHistory, bExit;
 
         ImageIcon studentIcon = new ImageIcon(FileUtil.PIC1_PATH);
         bNewStudent = new JButton("Add New Student ", studentIcon);
@@ -20,30 +20,30 @@ public class MainMenu extends JFrame {
         ImageIcon rulesIcon = new ImageIcon(FileUtil.PIC2_PATH);
         bRules = new JButton("Rules Description", rulesIcon);
 
-        ImageIcon newCaseIcon = new ImageIcon(FileUtil.PIC3_PATH);
-        bNewCase = new JButton("File a New Case", newCaseIcon);
+        ImageIcon studentsIcon = new ImageIcon(FileUtil.PIC3_PATH);
+        bStudentsList = new JButton("Students List", studentsIcon);
 
-        ImageIcon reportIcon = new ImageIcon(FileUtil.PIC4_PATH);
-        bWarningLetter = new JButton("History", reportIcon);
+        ImageIcon newCaseIcon = new ImageIcon(FileUtil.PIC4_PATH);
+        bNewCase = new JButton("File a New Case", newCaseIcon);
 
         bNewStudent.addActionListener(Navigation.navigateToNewStudentScreen());
 
         bRules.addActionListener(Navigation.navigateToRulesScreen());
-        
-        bNewCase.addActionListener(Navigation.navigateToNewCaseScreen());
+
+        bStudentsList.addActionListener(Navigation.navigateToNewCaseScreen());
 
         Font myFont = new Font("Arial", Font.ITALIC | Font.BOLD, 20);
         myFont = myFont.deriveFont(20F);
         bNewStudent.setFont(myFont);
         bRules.setFont(myFont);
+        bStudentsList.setFont(myFont);
         bNewCase.setFont(myFont);
-        bWarningLetter.setFont(myFont);
 
         add(bNewStudent);
         add(bRules);
+        add(bStudentsList);
         add(bNewCase);
-        add(bWarningLetter);
-        
+
         setLayout(new GridLayout(2, 2));
         setSize(1000, 800);
         setLocationRelativeTo(null);

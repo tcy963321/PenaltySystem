@@ -26,10 +26,8 @@ public class StudentsListScreen extends JFrame {
         setLayout(new BorderLayout());
 
         // Instruction label
-        JLabel lInstruction = new JLabel("Select a student:");
-        lInstruction.setBorder(GUIUtil.createHorzBorder(GUIUtil.DEFAULT_MARGIN));
-        lInstruction.setBackground(Color.cyan);
-        lInstruction.setOpaque(true);
+        JLabel lInstruction = new JLabel("All students recorded so far:");
+        lInstruction.setBorder(GUIUtil.createBorder(GUIUtil.DEFAULT_MARGIN));
 
         // Put all student panels into a scrollable panel
         GridLayout glStd = GUIUtil.create1ColumnGrid(students.size());
