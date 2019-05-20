@@ -14,7 +14,7 @@ import org.apache.commons.io.FileUtils;
 // Singleton for data input / output
 public class RulesDA {
 
-    private static final String RULES_PATH = RootDA.ROOT_PATH + "rules_ps.json";
+    private static final String RULES_FILE = RootDA.ROOT_PATH + "rules_ps.json";
 
     private static final Type RULES_SERIALIZATION_TYPE
             = new TypeToken<List<Rule>>() {
@@ -51,7 +51,7 @@ public class RulesDA {
     private void saveRulesLocally(String rulesJson) {
         try {
             FileUtils.writeStringToFile(
-                    new File(RULES_PATH), rulesJson, Charset.forName("UTF-8"));
+                    new File(RULES_FILE), rulesJson, Charset.forName("UTF-8"));
         } catch (IOException e) {
             System.out.println(
                     "GetData: Cannot save rules locally: " + e.getMessage());
@@ -83,22 +83,38 @@ public class RulesDA {
     private String loadRulesData() {
         try {
             return FileUtils.readFileToString(
-                    new File(RULES_PATH), Charset.forName("UTF-8"));
+                    new File(RULES_FILE), Charset.forName("UTF-8"));
         } catch (IOException e) {
             System.out.println("GetData: Cannot load rules: " + e.getMessage());
         }
         return "";
     }
 
-    public void useDemoData() {
+    public void initialRulesData() {
         List<Rule> myRules = new ArrayList<>();
 
-        myRules.add(new Rule(50, 0, "Student must wear appropriate clothing", "bla bla bla"));
-        myRules.add(new Rule(70, 0, "Car parking must be 1 per slot", "bla bla bla"));
-        myRules.add(new Rule(80, 2, "Student must wear appropriate clothing", "bla bla bla"));
-        myRules.add(new Rule(90, 0, "Student must wear appropriate clothing", "bla bla bla"));
-        myRules.add(new Rule(20, 1, "Student must wear appropriate clothing", "bla bla bla"));
-
+        myRules.add(new Rule(0, "BILIK KOTOR"));
+        myRules.add(new Rule(0, "BILIK TIDAK KEMAS DAN BERSELERAK SEMASA PEMERIKSAAN BILIK DIBUAT"));
+        myRules.add(new Rule(0, "KEHILANGAN KUNCI BILIK"));
+        myRules.add(new Rule(0, "MENJEMUR/MENYADAI PAKAIAN BASAH DI DALAM BILIK, TINGKAP, BILIK REHAT"));
+        myRules.add(new Rule(0, "MEMBAWA/MENGABIL/MENGALIH ALAT-ALAT KEMUDAHAN PERABOT TANPA KEBENARAN"));
+        myRules.add(new Rule(0, "MEMBIARKAN KASUT-KASUT/ SELIPAR BERSEPAH DI LUAR BILIK (SEPASANG)"));
+        myRules.add(new Rule(0, "MEMBUANG SISA MAKANAN DAN MINUMAN YANG HARAM DI SISI AGAMA ISLAM"));
+        myRules.add(new Rule(0, "MEMBUANG SAMPAH/ OBJEK DARI TINGKAT ATAS KE TINGKAT BAWAH"));
+        myRules.add(new Rule(0, "MEMCONTENG PERMUKAAN PREMIS: 1 KAKI PERSEGI"));
+        myRules.add(new Rule(0, "TIDAK MELAPORKAN KEROSAKAN YANG MENDATANGKAN MUDARAT KE DALAM BILIK KEDIAMAN"));
+        myRules.add(new Rule(50, "KEROSAKAN TILAM"));
+        myRules.add(new Rule(50, "KEROSAKAN SHOWER"));
+        myRules.add(new Rule(50, "KEROSAKAN LAMPU"));
+        myRules.add(new Rule(50, "KEROSAKAN TOMBOL"));
+        myRules.add(new Rule(50, "LELAKI YANG DIDAPATI BERADA DI ASRAMA PEREMPUAN(KECUALI STAF ASRAMA UNIVERSITY)"));
+        myRules.add(new Rule(50, "MEMILIKI DAPUR MINYAK, RICE COOKER"));
+        myRules.add(new Rule(50, "MEMILIKI HOT PLATE, HEATER COIL"));
+        myRules.add(new Rule(100, "MEMANJAT TINGKAP BILIK/ PAGAR"));
+        myRules.add(new Rule(100, "MEMGGUNAKAN GELANGGAN FUTSAL SELEPAS JAM 12.00 TEHGAH MALAM"));
+        myRules.add(new Rule(100, "IDAK PAMER PELEKAT KENDERAAN"));
+        myRules.add(new Rule(100, "KEROSAKAN PINTU"));
+        
         saveRules(myRules);
     }
 }

@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 import main.models.Student;
 import main.views.NewStudentScreen;
+import main.views.RulesScreen;
 import main.views.StudentsListScreen;
 
 public class Navigation {
@@ -22,6 +23,17 @@ public class Navigation {
 
             frame.setSize(1000, 300);
             frame.setResizable(false);
+            frame.setLocationRelativeTo(null);
+            ImageIcon img = new ImageIcon(FileUtil.LOGO_PATH);
+            frame.setIconImage(img.getImage());
+            frame.setVisible(true);
+        };
+    }
+    
+    public static ActionListener navigateToRulesScreen() {
+        return (ActionEvent e) -> {
+            RulesScreen frame = new RulesScreen();
+            
             frame.setLocationRelativeTo(null);
             ImageIcon img = new ImageIcon(FileUtil.LOGO_PATH);
             frame.setIconImage(img.getImage());

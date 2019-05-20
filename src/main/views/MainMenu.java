@@ -28,19 +28,9 @@ public class MainMenu extends JFrame {
         ImageIcon reportIcon = new ImageIcon(FileUtil.PIC4_PATH);
         bWarningLetter = new JButton("Warning Letter", reportIcon);
 
-        bHistory = new JButton("History");
-
-        ImageIcon exit = new ImageIcon(FileUtil.PIC6_PATH);
-        bExit = new JButton("Exit", exit);
-
         bNewStudent.addActionListener(Navigation.navigateToNewStudentScreen());
 
-        bRules.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-//                Rules R = new Rules();
-
-            }
-        });
+        bRules.addActionListener(Navigation.navigateToRulesScreen());
         
         bNewCase.addActionListener(Navigation.navigateToNewCaseScreen());
 
@@ -57,29 +47,20 @@ public class MainMenu extends JFrame {
             }
         });
 
-        bExit.addActionListener((ActionEvent arg0) -> {
-            dispose();
-            System.exit(0);
-        });
-
         Font myFont = new Font("Arial", Font.ITALIC | Font.BOLD, 20);
         myFont = myFont.deriveFont(20F);
         bNewStudent.setFont(myFont);
         bRules.setFont(myFont);
         bNewCase.setFont(myFont);
         bWarningLetter.setFont(myFont);
-        bHistory.setFont(myFont);
-        bExit.setFont(myFont);
 
         add(bNewStudent);
         add(bRules);
         add(bNewCase);
         add(bWarningLetter);
-        add(bHistory);
-        add(bExit);
         
-        setLayout(new GridLayout(2, 3));
-        setSize(1280, 800);
+        setLayout(new GridLayout(2, 2));
+        setSize(1000, 800);
         setLocationRelativeTo(null);
         ImageIcon logoIcon = new ImageIcon(FileUtil.LOGO_PATH);
         setIconImage(logoIcon.getImage());

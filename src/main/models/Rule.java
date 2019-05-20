@@ -2,14 +2,10 @@ package main.models;
 
 public class Rule {
     private double fine;
-    private int minimumTimesBeforeFine;
-    private String title;
     private String description;
 
-    public Rule(double fine, int minimumTimesBeforeFine, String title, String description) {
+    public Rule(double fine, String description) {
         this.fine = fine;
-        this.minimumTimesBeforeFine = minimumTimesBeforeFine;
-        this.title = title;
         this.description = description;
     }
 
@@ -19,22 +15,6 @@ public class Rule {
 
     public void setFine(double fine) {
         this.fine = fine;
-    }
-
-    public int getMinimumTimesBeforeFine() {
-        return minimumTimesBeforeFine;
-    }
-
-    public void setMinimumTimesBeforeFine(int minimumTimesBeforeFine) {
-        this.minimumTimesBeforeFine = minimumTimesBeforeFine;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getDescription() {

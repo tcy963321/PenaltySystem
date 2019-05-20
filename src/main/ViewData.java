@@ -30,12 +30,30 @@ public class ViewData {
         return RulesDA.getInstance().getRules();
     }
 
+    public String[][] rulesInTableFormat() {
+        List<Rule> rulesList = getAllRules();
+
+        // Set the number of rows to the number of rules,
+        // and columns to how many attributes a Rule have (currently 2),
+        // and numbering
+        String[][] rules = new String[rulesList.size()][3];
+
+        for (int i = 0; i < rulesList.size(); i++) {
+            rules[i][0] = String.format("%d", (i + 1));
+            rules[i][1] = rulesList.get(i).getDescription();
+            rules[i][2] = String.format("%.1f", rulesList.get(i).getFine());
+        }
+
+        return rules;
+    }
+
     public void saveRulesList(List<Rule> rulesToSave) {
         RulesDA.getInstance().saveRules(rulesToSave);
     }
 
     public List<Student> getAllStudents() {
         //StudentsDA.getInstance().studentsDemoData();
+        //RulesDA.getInstance().initialRulesData();
         return StudentsDA.getInstance().getStudents();
     }
 
