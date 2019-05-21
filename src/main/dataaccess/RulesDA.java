@@ -32,6 +32,11 @@ public class RulesDA {
         if (instance == null) {
             instance = new RulesDA();
         }
+        
+        if (instance.getRules() == null || instance.getRules().isEmpty()) {
+            instance.initialRulesData();
+        }
+        
         return instance;
     }
 
