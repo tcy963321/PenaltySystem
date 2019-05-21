@@ -85,7 +85,7 @@ public class NewCaseForm extends JFrame implements Navigation.PenaltyFormListene
         panel1.add(lTo);
         panel1.add(bChooseStudent);
         panel1.add(lChosenStudent);
-        panel1.add(GUIUtil.space(300));
+        panel1.add(GUIUtil.space(340));
         panel1.add(lWarning);
         panel1.add(tfWarning);
 

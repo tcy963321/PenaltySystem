@@ -27,7 +27,7 @@ public class DisplayReportScreen extends JFrame {
         ImageIcon imageIcon = new ImageIcon(FileUtil.LOGO_PATH);
         JLabel label = new JLabel(imageIcon);
 
-        taFinal = new JTextArea(" From:\n" + " "
+        String text = " From:\n" + " "
                 + data.getAdminName() + "\n" + " "
                 + data.getAdminPosition() + "\n" + " "
                 + data.getDepartment() + "\n" + " "
@@ -35,8 +35,17 @@ public class DisplayReportScreen extends JFrame {
                 + " To:\n" + " "
                 + data.getStudent().getFullName() + "\n" + " "
                 + data.getStudent().getMatrixId() + "\n" + "\n" + " "
-                + data.getWarning());
+                + data.getWarning() + "\n\n";
 
+        double totalFine = data.calcTotalFine();
+        if (totalFine <= 0.0) {
+            text += "This is a warning. No charges applied.\n";
+        } else {
+            text += String.format("You are charged RM %.2f in total. Please pay as soon as possible.",
+                     totalFine);
+        }
+
+        taFinal = new JTextArea(text);
         taFinal.setFont(new Font("Arial", Font.BOLD, 12));
         taFinal.setBounds(10, 10, 1000, 850);
         taFinal.setLineWrap(true);

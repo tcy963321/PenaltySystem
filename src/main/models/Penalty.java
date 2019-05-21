@@ -76,4 +76,14 @@ public class Penalty {
     public void setRulesBroken(List<Rule> rulesBroken) {
         this.rulesBroken = rulesBroken;
     }
+    
+    public double calcTotalFine() {
+        double sum = 0.0;
+        
+        for (Rule rule : rulesBroken) {
+            sum += rule.getFine();
+        }
+        
+        return sum;
+    }
 }
