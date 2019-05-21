@@ -38,4 +38,7 @@ dist/
 nbdist/
 .nb-gradle/
 
+# Generated reports
+report/
+
 # End of https://www.gitignore.io/api/java,netbeans
