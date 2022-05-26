@@ -22,5 +22,7 @@ Add New Student Page
 Rules Description Page
 ![Picture8](https://user-images.githubusercontent.com/52907523/170391519-df231277-05c8-404d-a5de-039ea95c1e19.png)
 
+
 List of Student Page
+
 ![Picture9](https://user-images.githubusercontent.com/52907523/170391565-bdedddca-dfc4-43de-ba52-3a2f8e7d034e.png)
